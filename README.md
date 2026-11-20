@@ -29,7 +29,7 @@ Toàn bộ ứng dụng được triển khai dưới dạng **Static Site**. M�
 - URL: https://mtunzchill.onrender.com
 - Build Command: `echo 'No build required'`
 - Publish Directory: `.`
-- Auto deploy: bật theo commit trên `main`
+- Render đang lấy nguồn từ URL repository Public: dù thuộc tính dịch vụ báo `autoDeploy: yes`, nguồn kiểu này **cần deploy thủ công** sau các commit cho đến khi kết nối trực tiếp GitHub App với Render. Bản 3.0 đã được deploy thủ công thành công.
 
 ## Kiểm thử trước khi phát hành
 
