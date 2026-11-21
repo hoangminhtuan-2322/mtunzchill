@@ -7,9 +7,10 @@ const allowedMoods=['calm','happy','tired','focus'];
 function noteShape(v){if(!v||typeof v!=='object'||typeof v.text!=='string')return null;const text=v.text.trim().slice(0,900);if(!text)return null;const raw=Number(v.createdAt);const timestamp=Number.isFinite(raw)&&raw>946684800000&&raw<Date.now()+86400000?raw:Date.now();return {id:typeof v.id==='string'&&v.id.length<80?v.id:`note-${timestamp}-${Math.random().toString(36).slice(2,8)}`,text,mood:allowedMoods.includes(v.mood)?v.mood:'calm',createdAt:timestamp}}
 function normalizeNotes(data){if(!Array.isArray(data))return [];const used=new Set();return data.slice(0,100).map(noteShape).filter(n=>{if(!n||used.has(n.id))return false;used.add(n.id);return true}).sort((a,b)=>b.createdAt-a.createdAt)}
 let notes=normalizeNotes(read('journal',[]));
-const defaultJourney={worlds:[],games:[],days:{}};
+const freshJourney=()=>({worlds:[],games:[],days:{}});
+const defaultJourney=freshJourney();
 let journey=read('journey',defaultJourney);
-if(!journey||typeof journey!=='object'||!Array.isArray(journey.worlds)||!Array.isArray(journey.games)||!journey.days||typeof journey.days!=='object'||Array.isArray(journey.days))journey=structuredClone(defaultJourney);
+if(!journey||typeof journey!=='object'||!Array.isArray(journey.worlds)||!Array.isArray(journey.games)||!journey.days||typeof journey.days!=='object'||Array.isArray(journey.days))journey=freshJourney();
 journey.worlds=journey.worlds.filter(x=>typeof x==='string').slice(0,20);
 journey.games=journey.games.filter(x=>typeof x==='string').slice(0,20);
 function todayFlags(){const v=journey.days[currentDay()];return v&&typeof v==='object'?v:{}}
@@ -33,4 +34,4 @@ const pref=p.preferences;if(pref&&typeof pref==='object'){
  if(Number.isFinite(pref.volume))try{localStorage.setItem('mtunzchill_volume',JSON.stringify(Math.min(100,Math.max(0,pref.volume))))}catch{}
  if(pref.ambients&&typeof pref.ambients==='object')try{localStorage.setItem('mtunzchill_ambients',JSON.stringify(Object.fromEntries(['rain','wave','wind','fire'].map(k=>[k,Math.min(100,Math.max(0,Number(pref.ambients[k])||0))]))))}catch{}
 }return imported.length}
-export function clearWellbeing(){notes=[];journey=structuredClone(defaultJourney);for(const name of ['journal','journey'])try{localStorage.removeItem(PREFIX+name)}catch{}}
+export function clearWellbeing(){notes=[];journey=freshJourney();for(const name of ['journal','journey'])try{localStorage.removeItem(PREFIX+name)}catch{}}
