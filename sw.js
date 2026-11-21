@@ -1,9 +1,10 @@
-const CACHE='mtunzchill-v4-20261121';
+const CACHE='mtunzchill-v5-auth-20261121';
 const RESOURCES=[
   './index.html',
   './manifest.webmanifest',
   './assets/styles.css',
   './assets/upgrade.css',
+  './assets/auth.css',
   './assets/favicon.svg',
   './assets/icon-192.png',
   './assets/icon-512.png',
@@ -23,6 +24,7 @@ const RESOURCES=[
   './assets/room-rain.webp',
   './assets/scene-beach.svg',
   './src/app.js',
+  './src/auth.js',
   './src/games.js',
   './src/audio.js',
   './src/data.js',
@@ -31,7 +33,7 @@ const RESOURCES=[
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(RESOURCES)))});
 self.addEventListener('activate',event=>{event.waitUntil((async()=>{for(const key of await caches.keys()){if(key.startsWith('mtunzchill-')&&key!==CACHE)await caches.delete(key)}await self.clients.claim()})())});
 self.addEventListener('fetch',event=>{
- const req=event.request;if(req.method!=='GET')return;const url=new URL(req.url);if(url.origin!==self.location.origin)return;
+ const req=event.request;if(req.method!=='GET')return;const url=new URL(req.url);if(url.origin!==self.location.origin||url.pathname.startsWith('/api/')||url.pathname==='/healthz')return;
  if(req.mode==='navigate'){event.respondWith((async()=>{try{const res=await fetch(req);if(res.ok){const cache=await caches.open(CACHE);cache.put('./index.html',res.clone()).catch(()=>{})}return res}catch{return(await caches.match('./index.html'))||Response.error()}})());return}
  event.respondWith((async()=>{const cached=await caches.match(req);if(cached)return cached;try{const res=await fetch(req);if(res.ok){const cache=await caches.open(CACHE);cache.put(req,res.clone()).catch(()=>{})}return res}catch{return Response.error()}})());
 });
