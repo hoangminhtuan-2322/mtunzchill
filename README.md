@@ -32,3 +32,11 @@ Vào `http://localhost:8000` — client API đồng origin.
 ## Giới hạn
 
 Đây là website có backend thật. Chưa có email xác minh / quên mật khẩu qua email; tên đăng nhập là username, không thu thập email. Nhạc trong website được tạo bằng Web Audio, chưa phải nhạc thương mại.
+
+## Trang chủ Dreamy Cozy · Premium Pastel (21/11/2026)
+
+- Hero cảnh hoạt hình lớn, CTA dùng thật; bộ lối vào nhanh cho nhạc, thế giới, game, hít thở, nhật ký và tài khoản.
+- Bốn thế giới với lưu yêu thích, 5 trò chơi, nhạc và preset âm thanh, tiếp tục hoạt động và nhật ký, gợi ý hoạt động hằng ngày.
+- Giao diện responsive, animation có hỗ trợ Reduced Motion; nhạc không tự phát khi chưa được người dùng thao tác.
+- Tệp trang chủ riêng tại `src/home.js` và `assets/home-premium.css` để không ảnh hưởng các trang chức năng/API hiện có.
+- Service Worker chỉ lưu tài nguyên tĩnh; không cache API, phiên hoặc dữ liệu cá nhân.
