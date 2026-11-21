@@ -5,7 +5,7 @@ export const worlds=[
  {id:'cafe',name:'Quán lofi',subtitle:'Góc nhỏ bên ly cà phê',desc:'Ghé quán cà phê ấm áp, bật một giai điệu thật nhẹ, nhâm nhi và tận hưởng những phút chậm rãi.',image:'assets/world-cafe.webp',scene:'assets/scene-cafe.svg',icon:'coffee',tag:'Lofi · Ấm cúng',ambient:'rain'}
 ];
 export const games=[
- {id:'cozy-home',name:'Cozy Home · Nuôi pet & xây nhà',desc:'Nuôi bé pet, trang trí nhà và trồng cây theo ý mình',image:'assets/cozy-home-cover.svg',icon:'home',tag:'Nuôi pet · Sáng tạo · Có lưu tiến trình',details:'Nhận một người bạn nhỏ, cho ăn, vuốt ve, đổi màu phòng, sắp xếp nội thất và tưới vườn hoa. Tiến trình lưu trên máy hoặc tài khoản mtunzchill.'},
+ {id:'cozy-home',name:'Cozy Home · Thế giới thú cưng',desc:'Nuôi pet, mở phòng, trồng cây và khám phá mỗi ngày',image:'assets/cozy-home-cover.svg',icon:'home',tag:'Nuôi pet · Xây nhà · 30 cấp độ',details:'Đón tối đa 3 người bạn nhỏ, xây căn nhà 3 khu vực, trồng cây thu hoạch, làm nhiệm vụ nhẹ, mở bộ sưu tập sticker và lưu tiến trình trên mtunzchill.'},
  {id:'pop',name:'Pop Pop',desc:'Nổ bong bóng thư giãn theo nhịp của riêng bạn',image:'assets/art-pop.webp',icon:'bubbles',tag:'Tương tác · Không áp lực',details:'Chạm vào 25 bong bóng pastel. Mỗi lần chạm đều có hiệu ứng nhỏ xinh.'},
  {id:'sand',name:'Vẽ trên cát',desc:'Sáng tạo những nét vẽ nhẹ nhàng',image:'assets/art-sand.webp',icon:'edit',tag:'Sáng tạo · Tự do',details:'Vẽ bằng chuột hoặc ngón tay. Thử tạo những hình vẽ thật tự do và xóa để bắt đầu lại.'},
  {id:'match',name:'Ghép đôi',desc:'Tìm các cặp hình giống nhau',image:'assets/art-match.webp',icon:'grid',tag:'Trí nhớ · Dễ thương',details:'Lật từng cặp thẻ dễ thương. Không tính thời gian, không áp lực.'},

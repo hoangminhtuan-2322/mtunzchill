@@ -1,15 +1,15 @@
 /* mtunzchill offline cache — never intercept or cache personal account endpoints. */
-const CACHE='mtunzchill-v9-soundspace-20261121';
+const CACHE='mtunzchill-v10-cozy-seasons-20261121';
 const RESOURCES=[
  './index.html','./manifest.webmanifest','./assets/styles.css','./assets/upgrade.css',
- './assets/auth.css','./assets/home-premium.css','./assets/music-studio.css','./assets/soundspace.css','./assets/cozy-home.css','./assets/cozy-home-cover.svg','./assets/favicon.svg',
+ './assets/auth.css','./assets/home-premium.css','./assets/music-studio.css','./assets/soundspace.css','./assets/cozy-home.css','./assets/cozy-adventure.css','./assets/cozy-home-cover.svg','./assets/favicon.svg',
  './assets/icon-192.png','./assets/icon-512.png','./assets/scene-forest.svg',
  './assets/world-forest.webp','./assets/art-stars.webp','./assets/scene-cafe.svg',
  './assets/art-sand.webp','./assets/art-fish.webp','./assets/world-cafe.webp',
  './assets/art-breathe.webp','./assets/hero-world.webp','./assets/art-match.webp',
  './assets/world-rain.webp','./assets/world-beach.webp','./assets/art-pop.webp',
  './assets/room-rain.webp','./assets/scene-beach.svg',
- './src/app.js','./src/home.js','./src/music-hub.js','./src/cozy-home.js','./src/auth.js','./src/games.js','./src/audio.js',
+ './src/app.js','./src/home.js','./src/music-hub.js','./src/cozy-home.js','./src/cozy-adventure.js','./src/auth.js','./src/games.js','./src/audio.js',
  './src/data.js','./src/wellbeing.js'
 ];
 self.addEventListener('install',event=>event.waitUntil(
