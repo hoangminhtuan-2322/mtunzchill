@@ -278,7 +278,8 @@ def save_state(payload: StateIn, user=Depends(require_auth)):
 app.mount("/assets", StaticFiles(directory=str(WEB_ROOT / "assets")), name="assets")
 app.mount("/src", StaticFiles(directory=str(WEB_ROOT / "src")), name="src")
 
-@app.get("/", include_in_schema=False)
+@app.api_route("/", methods=["GET", "HEAD"], include_in_schema=False)
+@app.api_route("/index.html", methods=["GET", "HEAD"], include_in_schema=False)
 def web_home():
     return FileResponse(WEB_ROOT / "index.html",media_type="text/html",headers={"Cache-Control":"no-store"})
 

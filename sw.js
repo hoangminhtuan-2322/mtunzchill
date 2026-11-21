@@ -1,5 +1,5 @@
 /* mtunzchill offline cache — never intercept or cache personal account endpoints. */
-const CACHE='mtunzchill-v7-music-studio-20261121';
+const CACHE='mtunzchill-v7.1-music-routefix-20261121';
 const RESOURCES=[
  './index.html','./manifest.webmanifest','./assets/styles.css','./assets/upgrade.css',
  './assets/auth.css','./assets/home-premium.css','./assets/music-studio.css','./assets/favicon.svg',
