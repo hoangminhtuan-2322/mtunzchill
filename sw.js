@@ -1,8 +1,8 @@
 /* mtunzchill offline cache — never intercept or cache personal account endpoints. */
-const CACHE='mtunzchill-v8-cozy-home-20261121';
+const CACHE='mtunzchill-v9-soundspace-20261121';
 const RESOURCES=[
  './index.html','./manifest.webmanifest','./assets/styles.css','./assets/upgrade.css',
- './assets/auth.css','./assets/home-premium.css','./assets/music-studio.css','./assets/cozy-home.css','./assets/cozy-home-cover.svg','./assets/favicon.svg',
+ './assets/auth.css','./assets/home-premium.css','./assets/music-studio.css','./assets/soundspace.css','./assets/cozy-home.css','./assets/cozy-home-cover.svg','./assets/favicon.svg',
  './assets/icon-192.png','./assets/icon-512.png','./assets/scene-forest.svg',
  './assets/world-forest.webp','./assets/art-stars.webp','./assets/scene-cafe.svg',
  './assets/art-sand.webp','./assets/art-fish.webp','./assets/world-cafe.webp',

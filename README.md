@@ -62,3 +62,12 @@ Vào `http://localhost:8000` — client API đồng origin.
 - Dữ liệu `cozyHome` được đưa vào bản sao lưu `mtunzchill-local` v1; đăng nhập sẽ đồng bộ cùng dữ liệu riêng qua `/api/state` theo user đã xác thực. Khi đăng xuất sẽ xóa bản cache cá nhân trên máy và không hiển thị nhà của chủ tài khoản cho khách.
 - Khi chơi offline, tiến trình lưu trên `localStorage`; đồng bộ lại khi có mạng và phiên còn hiệu lực.
 - Không dùng quảng cáo, phân tích hành vi hay mua vật phẩm bằng tiền.
+
+
+## Music Garden V9 — SoundCloud & YouTube (21/11/2026)
+
+- Trang Âm nhạc có SoundCloud (8 gợi ý playlist/track công khai) và YouTube (2 lựa chọn Lofi Girl), với trình phát nhúng chính thức khi người dùng chủ động nhấn nghe.
+- Có thể nhập liên kết SoundCloud công khai hoặc video/playlist YouTube, lọc theo tâm trạng/nguồn, lưu yêu thích và mở lại gần đây. Dữ liệu thư viện nhạc tùy biến ở trình duyệt và chưa đồng bộ Neon. Các liên kết Spotify đã lưu ở localStorage phiên bản cũ không bị tự xóa.
+- Trình phát nổi được giữ khi đổi trang; YouTube không được thu nhỏ trong lúc phát để giữ video hiển thị. Nguồn nhạc có thể hạn chế phát/nhúng theo chính sách, khu vực và quyền của tác giả. Có liên kết tới ứng dụng gốc để mở khi nhúng không hoạt động.
+- Ấn logo mtunzchill tại đầu/chân trang từ bất kỳ trang nào sẽ trở về đầu trang chủ, kể cả khi URL đã là #/home.
+- CSP chỉ cho phép iframe Spotify cũ, SoundCloud chính thức và YouTube privacy-enhanced; tài nguyên bên ngoài chỉ tải khi người dùng nhấn phát. Service worker đổi cache version và thêm CSS mới; API tài khoản vẫn không bị cache.

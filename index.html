@@ -7,7 +7,7 @@
 <meta name="description" content="mtunzchill — không gian giải trí và thư giãn của bạn: nghe nhạc, khám phá thế giới hoạt hình, chơi mini game dịu nhẹ.">
 <meta name="color-scheme" content="light">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-src https://open.spotify.com; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-src https://open.spotify.com https://w.soundcloud.com https://www.youtube-nocookie.com; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <title>mtunzchill — Chill theo cách của bạn</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/styles.css">
@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="assets/auth.css">
 <link rel="stylesheet" href="assets/home-premium.css">
 <link rel="stylesheet" href="assets/music-studio.css">
+<link rel="stylesheet" href="assets/soundspace.css">
 <link rel="stylesheet" href="assets/cozy-home.css">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -38,12 +39,12 @@
 </header>
 <main id="app" tabindex="-1"></main>
 <footer class="site-footer">
-  <div class="footer-inner"><div class="footer-brand"><div class="footer-name">🐱 <strong>mtunzchill</strong> <span>❧</span></div><p>Một góc nhỏ để chơi, nghe và thả lỏng.</p></div>
+  <div class="footer-inner"><div class="footer-brand"><a class="footer-name" href="#/home" aria-label="Về đầu trang chủ mtunzchill">🐱 <strong>mtunzchill</strong> <span>❧</span></a><p>Một góc nhỏ để chơi, nghe và thả lỏng.</p></div>
    <div class="footer-col"><strong>Khám phá</strong><a href="#/worlds">Các thế giới</a><a href="#/games">Mini game</a><a href="#/music">Âm nhạc</a></div>
    <div class="footer-col"><strong>Dành cho bạn</strong><a href="#/relax">Thư giãn</a><a href="#/journal">Nhật ký chill</a><a href="#/profile">Tài khoản của mình</a><a href="#/about">Giới thiệu & quyền riêng tư</a></div>
    <div class="footer-message">🌷<strong>Cứ chill theo cách của bạn</strong><small>Không hối hả · Không áp lực · Riêng tư</small></div>
   </div>
-  <div class="footer-copyright">© <span id="copyrightYear"></span> mtunzchill. Nhạc Spotify qua trình phát nhúng chính thức; giai điệu riêng tạo trong trình duyệt. <span>Made for slow moments ♡</span></div>
+  <div class="footer-copyright">© <span id="copyrightYear"></span> mtunzchill. Nhạc SoundCloud và YouTube qua trình phát nhúng chính thức; giai điệu riêng tạo trong trình duyệt. <span>Made for slow moments ♡</span></div>
 </footer>
 <nav id="mobileNav" class="mobile-nav" aria-label="Điều hướng điện thoại"></nav>
 <div id="compactPlayer" class="compact-player" hidden></div>
