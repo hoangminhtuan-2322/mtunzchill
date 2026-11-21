@@ -1,40 +1,87 @@
-# mtunzchill 🌿
+# mtunzchill — Cozy Hybrid 🌸
 
-**Website giải trí thư giãn** với đồ họa hoạt hình 2D, âm thanh tự tạo và các hoạt động tương tác. Bản hiện tại: **3.0**.
+Website giải trí thư giãn **nhiều trang + thế giới hoạt hình tương tác**, thiết kế lại từ đầu theo concept pastel đã được duyệt.
 
-## Trải nghiệm hiện có
+## Website đang triển khai
 
-- Cảnh hoạt hình tương tác: vuốt ve mèo Mochi, chuyển ngày/đêm, bật/tắt mưa.
-- 5 trò chơi hoạt động: **Pop Pop**, **Vẽ trên cát**, **Ghép đôi**, **Hồ cá nhỏ**, **Nối những vì sao**.
-- Hoạt động **Hít thở 1 phút** với nút bắt đầu, tạm dừng và làm lại.
-- Trình phát **3 giai điệu nguyên bản tổng hợp bằng Web Audio API**, chuyển bài, tạm dừng và điều chỉnh âm lượng.
-- Bộ trộn âm thanh mưa, sóng và gió; preset **Mưa bên hiên / Biển chiều / Gió rừng**.
-- Mood và lời nhắn; lưu tùy chọn ngày/đêm, mood, âm lượng nhạc và giảm chuyển động trên trình duyệt.
-- Responsive cho máy tính, máy tính bảng và điện thoại; hỗ trợ điều hướng bàn phím, chế độ giảm chuyển động.
+**https://mtunzchill.onrender.com** (Render Static Site)
 
-## Kiến trúc hiện tại
+## Các trang và chức năng hoàn chỉnh hiện có
 
-Toàn bộ ứng dụng được triển khai dưới dạng **Static Site**. Mở `index.html` trên trình duyệt hiện đại để sử dụng. **Không cần** backend, môi trường biến hay database.
+| Trang | Đường dẫn | Chức năng |
+|---|---|---|
+| Trang chủ | `#/home` | Banner, thế giới nổi bật, tìm kiếm, game, âm thanh, player |
+| Thế giới | `#/worlds` | Danh sách 4 cảnh, lưu yêu thích |
+| Tương tác | `#/worlds/rain`, `beach`, `forest`, `cafe` | Chuyển ngày/đêm, bật/tắt mưa, ánh sáng, vuốt ve Mochi, chọn âm thanh |
+| Âm nhạc | `#/music` | 4 giai điệu gốc tổng hợp bằng Web Audio, đổi bài, phát/dừng, điều chỉnh âm lượng, 4 bộ âm thanh thiên nhiên |
+| Trò chơi | `#/games` | Danh mục 6 hoạt động và trang chơi độc lập |
+| Pop Pop | `#/games/pop` | Bóp 25 bong bóng và chơi lại |
+| Vẽ trên cát | `#/games/sand` | Vẽ bằng chuột/cảm ứng, xóa và vẽ lại |
+| Ghép đôi | `#/games/match` | 4 cặp, lượt chơi, khóa thao tác khi lật, chơi lại |
+| Nối sao | `#/games/stars` | Nối 7 sao theo thứ tự, chơi lại, hỗ trợ phím Enter |
+| Hồ cá nhỏ | `#/games/pond` | Cho cá ăn, đếm lượt, hỗ trợ chạm và bàn phím |
+| Hít thở | `#/games/breathe` | Đồng hồ 1 phút, vòng tròn hít/thở, tạm dừng và chơi lại |
+| Thư giãn | `#/relax` | Mood, câu nói, liên kết hít thở/thế giới/focus |
+| Tập trung | `#/relax/focus` | Hẹn giờ 5/15/25 phút, tạm dừng, đặt lại |
+| Góc của mình | `#/profile` | Thế giới và nhạc đã lưu, âm lượng, giảm chuyển động, xóa dữ liệu cục bộ |
+| Giới thiệu | `#/about` | Giới thiệu và quyền riêng tư |
 
-- Không có đăng ký/đăng nhập hay đồng bộ dữ liệu qua thiết bị.
-- Dữ liệu tùy chọn được lưu trong `localStorage` của trình duyệt; không lưu ở Neon.
-- Âm thanh nhạc là các giai điệu **tổng hợp trên trình duyệt**, không phải dịch vụ nghe nhạc thương mại.
-- Trình duyệt yêu cầu thao tác người dùng trước khi phát âm thanh.
-- Không tải script, font hoặc thư viện bên ngoài. Trang khai báo CSP và không dùng API thu thập dữ liệu.
+## Hướng dẫn chạy thử cục bộ
 
-## Triển khai
+Ứng dụng là **Static Site**, dùng JavaScript ES Modules. Mở bằng web server tĩnh (không mở file trực tiếp vì các trình duyệt chặn `import` qua `file://`).
 
-- Repo: `hoangminhtuan-2322/mtunzchill`, nhánh `main`
-- Render: **Static Site** tên `mtunzchill`
-- URL: https://mtunzchill.onrender.com
-- Build Command: `echo 'No build required'`
-- Publish Directory: `.`
-- Render đang lấy nguồn từ URL repository Public: dù thuộc tính dịch vụ báo `autoDeploy: yes`, nguồn kiểu này **cần deploy thủ công** sau các commit cho đến khi kết nối trực tiếp GitHub App với Render. Bản 3.0 đã được deploy thủ công thành công.
+```bash
+python -m http.server 8000
+```
 
-## Kiểm thử trước khi phát hành
+Sau đó mở `http://localhost:8000/#/home`.
 
-Trên Chromium: kiểm tra layout 320, 390, 768, 1024, 1440px; chuyển ngày/đêm, hiệu ứng mưa, mood, âm thanh, preset; cả 5 game và bài hít thở; kiểm tra console JavaScript. Các kiểm tra này không thay thế kiểm thử thực tế trên mọi trình duyệt và thiết bị.
+## Cấu trúc
 
-## Hướng phát triển sau
+```text
+index.html
+assets/
+  styles.css
+  favicon.svg
+  hero-world.webp
+  world-*.webp
+  room-rain.webp
+  scene-*.svg
+  art-*.webp
+src/
+  app.js       # Điều hướng các trang, giao diện, lưu cục bộ, tìm kiếm
+  data.js      # Dữ liệu thế giới, trò chơi, giai điệu, icon SVG
+  audio.js     # Web Audio synth + ambient mixer
+  games.js     # Các mini game, hẹn giờ
+README.md
+robots.txt
+```
 
-Khi bổ sung tài khoản, bảng xếp hạng hoặc đồng bộ đám mây, cần xây dựng backend và phân quyền bảo mật trước khi kết nối Neon. Không đặt kết nối database hoặc bí mật trong mã nguồn trình duyệt.
+## Triển khai lên Render
+
+- Type: **Static Site**
+- Git repository: `https://github.com/hoangminhtuan-2322/mtunzchill`
+- Branch: `main`
+- Build command: `echo 'No build required'`
+- Publish directory: `.`
+- Trường hợp Render đang đọc repo bằng URL Public (chưa kết nối GitHub App), cập nhật sau khi commit cần được kích hoạt deploy thủ công. Không nên cho rằng `autoDeploy: yes` đồng nghĩa với webhook hoạt động.
+
+## Quyền riêng tư và bản quyền
+
+- Không có đăng nhập, gửi email, thu thập dữ liệu người dùng hoặc kết nối Neon.
+- Mood, mục yêu thích, lựa chọn gần đây, âm lượng và tùy chọn giảm chuyển động được lưu vào `localStorage` trên thiết bị. Xóa trong `Góc của mình`.
+- Không có analytics, quảng cáo, thư viện nhúng hay yêu cầu đến máy chủ bên ngoài.
+- **Nhạc là các giai điệu tự tổng hợp trong trình duyệt**, không phải các bản nhạc thu âm, kho nhạc thương mại hoặc API streaming. Trình duyệt chỉ phát âm thanh sau khi người dùng thao tác.
+- Minh họa được lấy từ các ảnh concept được tạo cho dự án mtunzchill và SVG tự dựng.
+
+## Tiêu chuẩn chất lượng
+
+- Giao diện desktop/mobile, menu thật, không có nút chỉ để trang trí.
+- Hỗ trợ `prefers-reduced-motion`, cài đặt giảm animation, các trạng thái nút và focus bàn phím.
+- Dùng JS Modules thuần, không cần cài dependencies, không đưa khóa API vào frontend.
+- Có thẻ CSP, không tải script bên ngoài.
+- Đã kiểm tra smoke bằng Chromium với 6 độ rộng: 320, 360, 390, 768, 1024, 1440; điều hướng 18 route, game, âm thanh, tìm kiếm, storage. Việc này không thay thế QA đa trình duyệt, đa thiết bị thực tế.
+
+## Phát triển tiếp
+
+Các chức năng như tài khoản, cloud sync, playlist nhạc streaming được cấp phép và quản trị nội dung cần backend riêng trước khi công khai. Không đặt thông tin kết nối Neon ở ứng dụng tĩnh.
