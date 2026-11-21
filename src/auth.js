@@ -11,9 +11,9 @@ const emit=()=>listeners.forEach(fn=>{try{fn(auth.status())}catch{}});
 const notice=message=>window.dispatchEvent(new CustomEvent('mtc:notice',{detail:message}));
 function dataSnapshot(){const data=JSON.parse(exportBackup());delete data.exportedAt;return data}
 function same(a,b){return JSON.stringify(a)===JSON.stringify(b)}
-function guestHasData(data){return !!(data?.journal?.length||data?.journey?.worlds?.length||data?.journey?.games?.length||data?.preferences?.favorites?.worlds?.length||data?.preferences?.favorites?.tracks?.length)}
-const emptyData=()=>({format:'mtunzchill-local',version:1,journal:[],journey:{worlds:[],games:[],days:{}},preferences:{favorites:{worlds:[],tracks:[]},mood:'calm',reduceMotion:false,lastWorld:null,lastGame:null,volume:58,ambients:{rain:0,wave:0,wind:0,fire:0}}});
-function purgeData(){hydrating=true;for(const key of ['mc_journal','mc_journey','mc_favorites','mc_mood','mc_reduceMotion','mc_lastWorld','mc_lastGame','mtunzchill_volume','mtunzchill_ambients'])localStorage.removeItem(key);importBackup(JSON.stringify(emptyData()));hydrating=false}
+function guestHasData(data){return !!(data?.cozyHome?.initialized||data?.journal?.length||data?.journey?.worlds?.length||data?.journey?.games?.length||data?.preferences?.favorites?.worlds?.length||data?.preferences?.favorites?.tracks?.length)}
+const emptyData=()=>({format:'mtunzchill-local',version:1,cozyHome:null,journal:[],journey:{worlds:[],games:[],days:{}},preferences:{favorites:{worlds:[],tracks:[]},mood:'calm',reduceMotion:false,lastWorld:null,lastGame:null,volume:58,ambients:{rain:0,wave:0,wind:0,fire:0}}});
+function purgeData(){hydrating=true;for(const key of ['mc_journal','mc_journey','mc_favorites','mc_mood','mc_reduceMotion','mc_lastWorld','mc_lastGame','mc_cozyHome','mtunzchill_volume','mtunzchill_ambients'])localStorage.removeItem(key);importBackup(JSON.stringify(emptyData()));hydrating=false}
 function clearSession(){token='';user=null;revision=0;paused=false;dirty=false;lastError='';sessionStorage.removeItem(TOKEN_KEY);localStorage.removeItem(OWNER_KEY);emit()}
 async function request(path,{method='GET',body,authenticated=true}={}){
  const ctrl=new AbortController(),timeout=setTimeout(()=>ctrl.abort(),45000);

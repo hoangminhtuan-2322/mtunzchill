@@ -52,3 +52,13 @@ Vào `http://localhost:8000` — client API đồng origin.
 - Dữ liệu Spotify đã lưu gần đây và playlist cá nhân hiện chỉ lưu trên trình duyệt, chưa đồng bộ Neon. Xóa dữ liệu trong Góc của mình sẽ xóa chúng.
 - Không có Web Playback SDK hoặc OAuth, không lấy hoặc lưu bản ghi thương mại hay Spotify API key. Spotify Development Mode bị giới hạn người dùng và thường yêu cầu Premium nếu sau này muốn tích hợp đầy đủ.
 - CSP cho phép `frame-src https://open.spotify.com` và không cho phép nhúng website tùy ý.
+
+## Cozy Home — game nuôi thú cưng và trang trí nhà
+
+- Truy cập `#/games/cozy-home` để nhận pet riêng: mèo, cún hoặc thỏ, và đặt tên.
+- Chăm pet: cho ăn, chơi cùng, nghỉ ngơi, vuốt ve. Pet không chết hay bị phạt khi nghỉ chơi lâu.
+- Trang trí 2 khu: phòng ngủ và khu vườn. Đặt/cất/chuyển vị trí của 12 loại nội thất; đổi màu phòng, ban ngày/đêm.
+- Chăm cây, nhận hạt nắng khi chăm pet và mua đồ trang trí. Hạt nắng chỉ là điểm game, không thể quy đổi tiền thật.
+- Dữ liệu `cozyHome` được đưa vào bản sao lưu `mtunzchill-local` v1; đăng nhập sẽ đồng bộ cùng dữ liệu riêng qua `/api/state` theo user đã xác thực. Khi đăng xuất sẽ xóa bản cache cá nhân trên máy và không hiển thị nhà của chủ tài khoản cho khách.
+- Khi chơi offline, tiến trình lưu trên `localStorage`; đồng bộ lại khi có mạng và phiên còn hiệu lực.
+- Không dùng quảng cáo, phân tích hành vi hay mua vật phẩm bằng tiền.
